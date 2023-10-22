@@ -7,33 +7,40 @@
 Summary:	AWS SDK for Python 2
 Summary(pl.UTF-8):	AWS SDK dla Pythona 2
 Name:		python-boto3
-Version:	1.17.1
-Release:	5
+# keep 1.17.x here for python2 support
+Version:	1.17.112
+Release:	1
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/boto3/
 Source0:	https://files.pythonhosted.org/packages/source/b/boto3/boto3-%{version}.tar.gz
-# Source0-md5:	a9436d49cf4a931327aebff158d72533
+# Source0-md5:	fc5e9145eb1fbc0601c94ed3918f1508
 URL:		https://pypi.org/project/boto3/
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
 BuildRequires:	python-setuptools
 %if %{with tests}
-BuildRequires:	python-botocore >= 1.20.1
+BuildRequires:	python-botocore >= 1.20.112
+BuildRequires:	python-botocore < 1.21
 BuildRequires:	python-jmespath >= 0.7.1
+BuildRequires:	python-jmespath < 1
 BuildRequires:	python-mock >= 1.3.0
 BuildRequires:	python-nose >= 1.3.3
-BuildRequires:	python-s3transfer >= 0.3.0
+BuildRequires:	python-s3transfer >= 0.4.0
+BuildRequires:	python-s3transfer < 0.5
 %endif
 %endif
 %if %{with python3}
 BuildRequires:	python3-modules >= 1:3.6
 BuildRequires:	python3-setuptools
 %if %{with tests}
-BuildRequires:	python3-botocore >= 1.20.1
+BuildRequires:	python3-botocore >= 1.20.112
+BuildRequires:	python3-botocore < 1.21
 BuildRequires:	python3-jmespath >= 0.7.1
+BuildRequires:	python3-jmespath < 1
 BuildRequires:	python3-nose >= 1.3.3
-BuildRequires:	python3-s3transfer >= 0.3.0
+BuildRequires:	python3-s3transfer >= 0.4.0
+BuildRequires:	python3-s3transfer < 0.5
 %endif
 %endif
 BuildRequires:	rpm-pythonprov
