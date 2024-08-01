@@ -5,13 +5,13 @@
 Summary:	AWS SDK for Python 2
 Summary(pl.UTF-8):	AWS SDK dla Pythona 2
 Name:		python3-boto3
-Version:	1.24.96
+Version:	1.34.152
 Release:	1
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/boto3/
 Source0:	https://files.pythonhosted.org/packages/source/b/boto3/boto3-%{version}.tar.gz
-# Source0-md5:	116e218c5adffd7d327bf3639f0ccdb6
+# Source0-md5:	781976b78aceaebb241f18f2d5f81f60
 URL:		https://pypi.org/project/boto3/
 BuildRequires:	python3-modules >= 1:3.7
 BuildRequires:	python3-setuptools
