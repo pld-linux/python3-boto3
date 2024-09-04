@@ -13,20 +13,20 @@ Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/b/boto3/boto3-%{version}.tar.gz
 # Source0-md5:	781976b78aceaebb241f18f2d5f81f60
 URL:		https://pypi.org/project/boto3/
-BuildRequires:	python3-modules >= 1:3.7
+BuildRequires:	python3-modules >= 1:3.8
 BuildRequires:	python3-setuptools
 %if %{with tests}
-BuildRequires:	python3-botocore >= 1.27.96
-BuildRequires:	python3-botocore < 1.28
+BuildRequires:	python3-botocore >= 1.34.152
+BuildRequires:	python3-botocore < 1.35
 BuildRequires:	python3-jmespath >= 0.7.1
-BuildRequires:	python3-jmespath < 1
-BuildRequires:	python3-nose >= 1.3.3
-BuildRequires:	python3-s3transfer >= 0.6.0
-BuildRequires:	python3-s3transfer < 0.7
+BuildRequires:	python3-jmespath < 2
+BuildRequires:	python3-pytest
+BuildRequires:	python3-s3transfer >= 0.10.0
+BuildRequires:	python3-s3transfer < 0.11
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	python3-modules >= 1:3.7
+Requires:	python3-modules >= 1:3.8
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -47,7 +47,8 @@ usługi takie jak Amazon S3 i Amazon EC2.
 %py3_build
 
 %if %{with tests}
-nosetests-%{py3_ver} tests
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
+%{__python3} -m pytest tests
 %endif
 
 %install
@@ -60,6 +61,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.rst
+%doc NOTICE README.rst
 %{py3_sitescriptdir}/boto3
 %{py3_sitescriptdir}/boto3-%{version}-py*.egg-info
