@@ -5,28 +5,28 @@
 Summary:	AWS SDK for Python 2
 Summary(pl.UTF-8):	AWS SDK dla Pythona 2
 Name:		python3-boto3
-Version:	1.34.152
-Release:	3
+Version:	1.42.67
+Release:	1
 License:	Apache v2.0
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/boto3/
 Source0:	https://files.pythonhosted.org/packages/source/b/boto3/boto3-%{version}.tar.gz
-# Source0-md5:	781976b78aceaebb241f18f2d5f81f60
+# Source0-md5:	ec6bb40dc706f2c7831f8ddf919e69ee
 URL:		https://pypi.org/project/boto3/
-BuildRequires:	python3-modules >= 1:3.8
+BuildRequires:	python3-modules >= 1:3.9
 BuildRequires:	python3-setuptools
 %if %{with tests}
-BuildRequires:	python3-botocore >= 1.34.152
-BuildRequires:	python3-botocore < 1.35
+BuildRequires:	python3-botocore >= 1.42.67
+BuildRequires:	python3-botocore < 1.43
 BuildRequires:	python3-jmespath >= 0.7.1
 BuildRequires:	python3-jmespath < 2
 BuildRequires:	python3-pytest
-BuildRequires:	python3-s3transfer >= 0.10.0
-BuildRequires:	python3-s3transfer < 0.11
+BuildRequires:	python3-s3transfer >= 0.16.0
+BuildRequires:	python3-s3transfer < 0.17
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	python3-modules >= 1:3.8
+Requires:	python3-modules >= 1:3.9
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
